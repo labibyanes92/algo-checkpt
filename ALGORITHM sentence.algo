@@ -1,0 +1,24 @@
+ALGORITHM sentence
+VAR
+    c : CHAR := '';
+    nmb_char : INTEGER := 0;
+    nmb_word : INTEGER := 0;
+    nmb_vow : INTEGER := 0;
+BEGIN
+    WHILE (c <> '.') DO
+        Read(c);
+        nmb_char := nmb_char +1;
+        IF (c = 'a' OR c='e' OR c='i' OR c='o' OR c='u' OR c='y') THEN
+            nmb_vow := nmb_vow +1;
+        END_IF
+
+        IF (c=' ') THEN
+            nmb_word := nmb_word +1;
+        END_IF
+        
+    END_WHILE
+
+    Write("The length of the sentence is ",nmb_char);
+    Write("The number of words in the sentence is ",nmb_word);
+    Write("he number of vowels in the sentence. is ",nmb_vow);
+END
