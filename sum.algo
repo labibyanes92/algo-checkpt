@@ -1,0 +1,12 @@
+ALGORITHM sum
+VAR
+    num1,num2,num3:INTEGER;
+    somme:INTEGER:=0;
+
+BEGIN
+    read(num1);
+    read(num2);
+    read(num3);
+    somme:=num1+num2+num3
+    write(somme)
+END
