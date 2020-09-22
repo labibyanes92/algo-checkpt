@@ -1,0 +1,42 @@
+ALGORITHM problm1-hashtble
+VAR
+    set1 : ARRAY_OF INTEGER[];
+    set2 : ARRAY_OF INTEGER[];
+    htab : HASH_TABLE<INTEGER,INTEGER>;
+    i,j,itr : INTEGER;
+    sum : INTEGER := 0;
+BEGIN
+    Write("set1 :");
+    Read(set1);
+    Write("set2 :");
+    Read(set2);
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        itr :=1;
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (set1[i]=set2[j]) THEN
+                itr:=itr+1;
+            END_IF    
+        END_FOR
+        htab.insert(set1[i],itr);
+    END_FOR
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+    IF (htab.get(set1[i])=1) THEN
+        sum = sum + set1[i];
+    END_IF
+    END_FOR
+    FOR i FROM 0 TO set2.length-1 STEP 1  DO
+        itr :=1;
+        FOR j FROM 0 TO set1.length-1 STEP 1  DO
+            IF (set2[i]=set1[j]) THEN
+                itr:=itr+1;
+            END_IF
+        END_FOR
+            htab.insert(set2[i],itr);
+    END_FOR    
+    FOR i FROM 0 TO set2.length-1 STEP 1  DO
+    IF (htab.get(set2[i])=1) THEN
+        sum = sum + set2[i];
+    END_IF
+    END_FOR
+    Write("the sum of distinct elmnts:",sum);
+END

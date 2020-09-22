@@ -1,0 +1,16 @@
+PROCEDURE TriInsertion(var tab : ARRAY_OF INTEGER[]);
+VAR
+    i, j, k : INTEGER;
+BEGIN
+j:=2;
+WHILE (j<=tab.length) DO
+    i:=j-1;
+    k:=tab[j];
+        WHILE (i>0 AND tab[i]>k) DO 
+            tab[i+1]:=tab[i];
+            i:=i-1;
+        END_WHILE
+    tab[i+1]:=k;
+    j:=j+1;
+END_WHILE
+END
